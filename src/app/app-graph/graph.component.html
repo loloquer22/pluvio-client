@@ -1,0 +1,267 @@
+<p>
+  Graphe mensuel par année
+</p>
+<div class="container">
+<ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one">
+    <ngb-panel title="2019">
+        <ng-template ngbPanelContent>
+          <accordion-group heading="Année 2019">
+            <div class="lineGraph">
+              <div style="display: block;">
+                <canvas baseChart width="800" height="200"
+                  [datasets]="lineChartData2019"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)">
+                </canvas>
+              </div>
+            </div>
+          </accordion-group>
+        </ng-template>
+      </ngb-panel>
+  <ngb-panel title="2018" id="config-panel-one">
+    <ng-template ngbPanelContent>
+      <accordion-group heading="Année 2018">
+        <div class="lineGraph">
+          <div style="display: block;">
+            <canvas baseChart width="800" height="200"
+              [datasets]="lineChartData2018"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+            </canvas>
+          </div>
+        </div>
+      </accordion-group>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel title="2017">
+      <ng-template ngbPanelContent>
+        <accordion-group heading="Année 2017">
+          <div class="lineGraph">
+            <div style="display: block;">
+              <canvas baseChart width="800" height="200"
+                [datasets]="lineChartData2017"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+              </canvas>
+            </div>
+          </div>
+        </accordion-group>
+      </ng-template>
+    </ngb-panel>
+  <ngb-panel title="2016">
+      <ng-template ngbPanelContent>
+        <accordion-group heading="Année 2016">
+          <div class="lineGraph">
+            <div style="display: block;">
+              <canvas baseChart width="800" height="200"
+                [datasets]="lineChartData2016"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+              </canvas>
+            </div>
+          </div>
+        </accordion-group>
+      </ng-template>
+    </ngb-panel>
+  <ngb-panel title="2015">
+      <ng-template ngbPanelContent>
+        <accordion-group heading="Année 2015">
+          <div class="lineGraph">
+            <div style="display: block;">
+              <canvas baseChart width="800" height="200"
+                [datasets]="lineChartData2015"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+              </canvas>
+            </div>
+          </div>
+        </accordion-group>
+      </ng-template>
+    </ngb-panel>
+  <ngb-panel title="2014">
+      <ng-template ngbPanelContent>
+        <accordion-group heading="Année 2014">
+          <div class="lineGraph">
+            <div style="display: block;">
+              <canvas baseChart width="800" height="200"
+                [datasets]="lineChartData2014"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+              </canvas>
+            </div>
+          </div>
+    </accordion-group>
+   </ng-template>
+  </ngb-panel>
+  <ngb-panel title="2013">
+    <ng-template ngbPanelContent>
+      <accordion-group heading="Année 2013">
+        <div class="lineGraph">
+          <div style="display: block;">
+            <canvas baseChart width="800" height="200"
+              [datasets]="lineChartData2013"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+            </canvas>
+          </div>
+        </div>
+      </accordion-group>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel title="2012">
+    <ng-template ngbPanelContent>
+      <accordion-group heading="Année 2012">
+        <div class="lineGraph">
+          <div style="display: block;">
+            <canvas baseChart width="800" height="200"
+              [datasets]="lineChartData2012"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+            </canvas>
+           </div>
+        </div>
+      </accordion-group>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel title="2011">
+      <ng-template ngbPanelContent>
+        <accordion-group heading="Année 2011">
+          <div class="lineGraph">
+            <div style="display: block;">
+              <canvas baseChart width="800" height="200"
+                [datasets]="lineChartData2011"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+              </canvas>
+            </div>
+          </div>
+        </accordion-group>
+      </ng-template>
+    </ngb-panel>
+  <ngb-panel title="2010">
+      <ng-template ngbPanelContent>
+        <accordion-group heading="Année 2010">
+          <div class="lineGraph">
+            <div style="display: block;">
+              <canvas baseChart width="800" height="200"
+                [datasets]="lineChartData2010"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+              </canvas>
+            </div>
+          </div>
+        </accordion-group>
+      </ng-template>
+    </ngb-panel>> 
+  <ngb-panel title="2009">
+      <ng-template ngbPanelContent>
+        <accordion-group heading="Année 2009">
+          <div class="lineGraph">
+            <div style="display: block;">
+              <canvas baseChart width="800" height="200"
+                [datasets]="lineChartData2009"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+              </canvas>
+            </div>
+          </div>
+        </accordion-group>
+      </ng-template>
+    </ngb-panel>
+  <ngb-panel title="2008">
+    <ng-template ngbPanelContent>
+      <accordion-group heading="Année 2008">
+        <div class="lineGraph">
+          <div style="display: block;">
+            <canvas baseChart width="800" height="200"
+              [datasets]="lineChartData2008"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+            </canvas>
+          </div>
+        </div>
+      </accordion-group>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel title="2007">
+    <ng-template ngbPanelContent>
+      <accordion-group heading="Année 2007">
+        <div class="lineGraph">
+          <div style="display: block;">
+            <canvas baseChart width="800" height="200"
+              [datasets]="lineChartData2007"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+            </canvas>
+          </div>
+        </div>
+      </accordion-group>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
+</div>
