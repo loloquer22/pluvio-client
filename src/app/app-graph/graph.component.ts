@@ -122,7 +122,7 @@ public lineChartLabels: Array<any> = ['Janvier', 'Février', 'Mars', 'Avril', 'M
 if ( 2019 === year ) {
     for ( let i = 0; i < listTotalByMonthByYears.length; i++ ) {
         this.data2019.push( listTotalByMonthByYears[i].valeur );
-//                    console.log( ' *****' + this.data2018 );
+//                    console.log( ' *****' + this.data2019 );
     }
 }
           if ( 2018 === year ) {
