@@ -1,14 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-photos',
   templateUrl: './photos.component.html',
-  styleUrls: ['./photos.component.css']
+  styleUrls: ['./photos.component.css'],
+  providers: [NgbCarouselConfig]  // add NgbCarouselConfig to the component providers
 })
 export class PhotosComponent implements OnInit {
+//    images = [1, 2, 3, 4].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
+    
+//    images = [1, 2, 3, 4].map(() =>`assets/images/carousel/DSC_0193.JPG','assets/images/carousel/DSC_0953.JPG`);
+//    images = [1, 2, 3, 4].map(() =>`https://picsum.photos/900/500?random&t=${Math.random()}`);
+    
  
-  constructor() { }
+    constructor(config: NgbCarouselConfig) {
+        // customize default values of carousels used by this component tree
+        config.interval = 10000;
+        config.wrap = false;
+        config.keyboard = false;
+        config.pauseOnHover = false;
+      }
 
   ngOnInit() { }
 }
