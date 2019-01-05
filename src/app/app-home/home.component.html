@@ -1,21 +1,34 @@
 
+<!-- <div class="home-image"> -->
 <section class="container">
 
-    <div style="width: 86%; text-align: center;">
-        <h5>Précipitations annuelles depuis 2007</h5>
-    </div>
-    <div class="barChart"
-        style="width: 80%; height: 60%; display: inline-block; margin-top: 5%; margin-left: 0px">
-        <canvas baseChart [datasets]="barChartData"
-            [labels]="barChartLabels" [options]="barChartOptions"
-            [legend]="barChartLegend" [colors]="barChartColors"
-            [chartType]="barChartType">
-        </canvas>
-    </div>
+	
+		<div style="width: 86%; text-align: center;">
+			<h5>Précipitations annuelles depuis 2007</h5>
+		</div>
 
- <!--   <ul class="years">
+		<div class="barChart"
+			style="width: 80%; height: 60%; display: inline-block; margin-top: 5%; margin-left: 0px">
+			<canvas baseChart [datasets]="barChartData" [labels]="barChartLabels"
+				[options]="barChartOptions" [legend]="barChartLegend"
+				[colors]="barChartColors" [chartType]="barChartType">
+        	</canvas>
+		</div>
+		
+		<div class="barChart"
+			style="width: 80%; height: 60%; display: inline-block; margin-top: 5%; margin-left: 0px">
+			<canvas baseChart [datasets]="barChartDataDay" [labels]="barChartLabelsDay"
+				[options]="barChartOptionsDay" [legend]="barChartLegendDay"
+				[colors]="barChartColorsDay" [chartType]="barChartTypeDay">
+        	</canvas>
+		</div>
+
+
+
+	<!--   <ul class="years">
         <li *ngFor="let year of years;">
                Annee: {{year.annee}}
         </li>
     </ul> -->
 </section>
+<!-- </div> -->
