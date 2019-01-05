@@ -1,0 +1,9 @@
+  .home-image {
+  background-image: url("assets/images/carousel/DSC_0246.JPG");
+  background-color: #00ff00;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}

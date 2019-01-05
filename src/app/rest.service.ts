@@ -46,6 +46,11 @@ export class RestService {
     return this.http.get(endpoint + 'lastValueRelevepluie').pipe(
       map(this.extractData));
   }
+  
+  getvalueByDayForMonthByYear(): Observable<any> {
+      return this.http.get(endpoint + 'valueByDayForMonthByYear').pipe(
+        map(this.extractData));
+    }
 
   addRelevepluie(relevepluie): Observable<Relevepluie> {
     console.log( relevepluie);
