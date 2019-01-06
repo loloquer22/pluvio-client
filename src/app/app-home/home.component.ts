@@ -23,7 +23,15 @@ export class HomeComponent implements OnInit {
   public barChartLabels: any[] = this.labels;
     public barChartType = 'bar';
     public Day = false;
-    public barChartOptions = '';
+    public barChartOptions: any = {
+            scales : {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+        };
     public chartHovered = '';
     public chartClicked = '';
     public barChartColors: Array<Color> = [{
@@ -38,7 +46,17 @@ export class HomeComponent implements OnInit {
     public barChartLabelsDay: any[] = this.labelsDay;
     public barChartTypeDay = 'bar';
     public barChartLegendDay = true;
-    public barChartOptionsDay = '';
+    public barChartOptionsDay: any = {
+              scales : {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true,
+                    min: 0,
+                    sugestedMax: 50
+                  }
+                }]
+              }
+          };
     public chartHoveredDay = '';
     public chartClickedDay = '';
     public barChartColorsDay: Array<Color> = [{
