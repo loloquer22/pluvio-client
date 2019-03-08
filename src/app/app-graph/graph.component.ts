@@ -84,7 +84,13 @@ export class GraphComponent implements OnInit {
 
 public lineChartLabels: Array<any> = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
   public lineChartOptions: any = {
-      responsive: true
+          scales : {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
   };
 
   public lineChartColors: Array<any> = [

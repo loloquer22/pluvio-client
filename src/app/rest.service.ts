@@ -7,7 +7,8 @@ import { map, catchError, tap } from 'rxjs/operators';
 import { Relevepluie } from './relevepluie';
 
 //const endpoint = 'http://localhost:8080/pluvio/';
-const endpoint = environment.apiUrl;
+//const endpoint = environment.apiUrl;
+const endpoint = '/pluvio/';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -48,7 +49,7 @@ export class RestService {
   }
   
   getvalueByDayForMonthByYear(): Observable<any> {
-      return this.http.get(endpoint + 'valueByDayForMonthByYear').pipe(
+      return this.http.get(endpoint + 'listValDayMonthYear').pipe(
         map(this.extractData));
     }
 

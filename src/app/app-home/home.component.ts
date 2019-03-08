@@ -14,11 +14,8 @@ export class HomeComponent implements OnInit {
   public labels:any = [];
   dataValues:Array<Number> = new Array();
 
-    public labelsDay:any = [];
-    dataValuesDay:Array<Number> = new Array();
     
     private chartData: Array<any>;
-    private chartDataDay: Array<any>;
 
   public barChartLabels: any[] = this.labels;
     public barChartType = 'bar';
@@ -43,38 +40,13 @@ export class HomeComponent implements OnInit {
         { dataValues: this.dataValues, label: 'Pluie en mm' },
     ];
     
-    public barChartLabelsDay: any[] = this.labelsDay;
-    public barChartTypeDay = 'bar';
-    public barChartLegendDay = true;
-    public barChartOptionsDay: any = {
-              scales : {
-                yAxes: [{
-                  ticks: {
-                    beginAtZero: true,
-                    min: 0,
-                    sugestedMax: 50
-                  }
-                }]
-              }
-          };
-    public chartHoveredDay = '';
-    public chartClickedDay = '';
-    public barChartColorsDay: Array<Color> = [{
-        backgroundColor: '#00BFFF',
-        hoverBackgroundColor: '#00008B'
-    }];
-    
-    public barChartDataDay: any[] = [
-//                                  { labelsDay: this.labelsDay, label: 'Jour' },    
-                                  { dataValuesDay: this.dataValuesDay, label: 'Pluie par jour en mm' },
-                              ];
+
 
   constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
  
   ngOnInit() {
     this.getListYear();
     this.getValuesByYear();
-    this.getValueByDayForMonthByYear();
   }
 
   getListYear(){
@@ -100,18 +72,5 @@ export class HomeComponent implements OnInit {
     })
   }
   
-  getValueByDayForMonthByYear(){
-      this.rest.getvalueByDayForMonthByYear().subscribe((resultData) => {
-          console.log(resultData);
-          this.chartDataDay = [];
-          for (let i = 0; i < resultData.length; i++) {
-            this.dataValuesDay.push(resultData[i].valeur)
-            this.labelsDay.push((resultData[i].jour))
-            this.chartDataDay.push([(resultData[i].jour), resultData[i].valeur]);
-          }
-          
-            this.barChartLabelsDay = this.labelsDay;
-              this.barChartDataDay = this.dataValuesDay;
-      })
-  }
+
 }
