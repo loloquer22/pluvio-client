@@ -48,8 +48,8 @@ export class RestService {
       map(this.extractData));
   }
   
-  getvalueByDayForMonthByYear(): Observable<any> {
-      return this.http.get(endpoint + 'listValDayMonthYear').pipe(
+  getvalueByDayForMonthByYear(annee: any , mois: any): Observable<any> {
+      return this.http.get(endpoint + 'listValDayMonthYear/' + annee + '/'+  mois  ).pipe(
         map(this.extractData));
     }
 

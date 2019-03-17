@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Color } from 'ng2-charts';
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,7 @@ import { Color } from 'ng2-charts';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+    
   public years:any = [];
 
   public labels:any = [];
@@ -31,6 +33,7 @@ export class HomeComponent implements OnInit {
         };
     public chartHovered = '';
     public chartClicked = '';
+    public barChartLegend= '';
     public barChartColors: Array<Color> = [{
         backgroundColor: '#00008B',
         hoverBackgroundColor: '#1E90FF'
@@ -42,7 +45,8 @@ export class HomeComponent implements OnInit {
     
 
 
-  constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
+  constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) {
+  }
  
   ngOnInit() {
     this.getListYear();
@@ -56,10 +60,9 @@ export class HomeComponent implements OnInit {
       this.years = data;
     });
   }
-
-  getValuesByYear(){
+ getValuesByYear(){
     this.rest.getValuesByYear().subscribe (( result) => {
-      console.log(result);
+      console.log("**** valuesByYear " + result);
         this.chartData = [];
         for (let i = 0; i < result.length; i++) {
           this.dataValues.push(result[i].valeur)
@@ -71,6 +74,7 @@ export class HomeComponent implements OnInit {
             this.barChartData = this.dataValues;
     })
   }
+ 
   
 
 }

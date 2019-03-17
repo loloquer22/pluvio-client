@@ -3,6 +3,7 @@ import { RestService } from '../rest.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Relevepluie } from '../relevepluie';
 import { Color } from "ng2-charts";
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-relevepluie',
@@ -11,7 +12,9 @@ import { Color } from "ng2-charts";
 })
 
 export class RelevepluieComponent implements OnInit {
-  
+    annee: any;
+    mois: any;
+
   lastvalue:any = [];
 
   relevepluie: Relevepluie = new Relevepluie();
@@ -43,12 +46,12 @@ export class RelevepluieComponent implements OnInit {
       hoverBackgroundColor: '#00008B'
   }];
   
-  public barChartDataDay: any[] = [
-//                                { labelsDay: this.labelsDay, label: 'Jour' },    
+  public barChartDataDay: any[] =     [
                                 { dataValuesDay: this.dataValuesDay, label: 'Pluie par jour en mm' },
                             ];
- 
- constructor(public restService:RestService, private route: ActivatedRoute, private router: Router) { }
+  
+ constructor(public restService:RestService, private route: ActivatedRoute, private router: Router) {
+ }
  
   getLastValues() {
     this.lastvalue = [];
@@ -60,7 +63,7 @@ export class RelevepluieComponent implements OnInit {
 
   ngOnInit() {
     this.getLastValues();
-    this.getValueByDayForMonthByYear();
+    this.getValueByDayForMonthByYear(0,0);
   }
 
   newRelevepluie(): void {
@@ -68,6 +71,11 @@ export class RelevepluieComponent implements OnInit {
     this.relevepluie = new Relevepluie();
     this.getLastValues();
     
+  }
+  
+  searchByMonthByYear(){
+      this.dataValuesDay =[];
+      this.getValueByDayForMonthByYear(this.annee, this.mois);
   }
 
   addRelevepluie() {
@@ -81,14 +89,17 @@ export class RelevepluieComponent implements OnInit {
     this.addRelevepluie();
   }
   
-  getValueByDayForMonthByYear(){
-      this.restService.getvalueByDayForMonthByYear().subscribe((resultData) => {
+
+  
+  getValueByDayForMonthByYear(annee: any, mois: any){
+//      this.dataValuesDay = [];
+//      this.barChartLabelsDay =[];
+      this.restService.getvalueByDayForMonthByYear(annee , mois).subscribe((resultData) => {
           console.log(resultData);
-          this.chartDataDay = [];
           for (let i = 0; i < resultData.length; i++) {
             this.dataValuesDay.push(resultData[i].valeur)
             this.labelsDay.push((resultData[i].jour))
-            this.chartDataDay.push([(resultData[i].jour), resultData[i].valeur]);
+            this.barChartDataDay.push([(resultData[i].jour), resultData[i].valeur]);
           }
           
             this.barChartLabelsDay = this.labelsDay;
