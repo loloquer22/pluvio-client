@@ -13,6 +13,9 @@ export class SearchRelevepluieComponent implements OnInit {
   isDetailDivVisible: boolean = false;
   isSearchDivVisible: boolean = true;
 
+  deleted = false;
+  updated = false;
+  
   relevepluie: Relevepluie;
 
   date: String;
@@ -31,7 +34,9 @@ export class SearchRelevepluieComponent implements OnInit {
 
   getRelevepluieByDate() {
     this.restService.getRelevepluieByDate(this.date).subscribe(relevepluie => this.relevepluie = relevepluie)
-    }
+    this.isDetailDivVisible=true;
+    this.isSearchDivVisible=false;
+  }
 
   //  newUpdaterelevepluie(): void {
     //  this.relevepluie = new Relevepluie();
@@ -46,6 +51,7 @@ export class SearchRelevepluieComponent implements OnInit {
         console.log(data), 
       this.relevepluie = data as Relevepluie;},
       error => console.log(error));
+      this.location.back();
     }
 
     
@@ -57,7 +63,8 @@ export class SearchRelevepluieComponent implements OnInit {
     this.restService.deleteRelevepluie(this.relevepluie.id)
     .subscribe(()=> this.message = "Relevepluie Supprimer avec Success!"),
     error => console.log(error);
-    this.getRelevepluieByDate();
+    this.deleted = false;
+    this.location.back();
   }
    
 
@@ -65,16 +72,24 @@ export class SearchRelevepluieComponent implements OnInit {
     this.location.back();
   }
 
-  onSubmit() {
-  this.isSearchDivVisible= false;
-  this.getRelevepluieByDate();
-  this.isDetailDivVisible=true;
+//  onSubmit() {
+//  this.isSearchDivVisible=false;
+//  this.isDetailDivVisible=true;
+//  }
+  
+  onDelete(buttonType) {
+      if(buttonType==="Deleted") {
+          this.deleted = true;
+          console.log(buttonType);
+      }
   }
 
- // onUpdate(){
- //   console.log(this.relevepluie); 
- //   this.updateRelevepluie();
- // }
+  onUpdate(buttonType){
+      if(buttonType==="Updated") {
+          this.updated = true;
+          console.log(buttonType);
+      }
+  }
 
  
   }

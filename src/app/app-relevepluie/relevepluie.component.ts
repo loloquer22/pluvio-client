@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Relevepluie } from '../relevepluie';
 import { Color } from "ng2-charts";
 import { Observable } from "rxjs";
-
 @Component({
   selector: 'app-relevepluie',
   templateUrl: './relevepluie.component.html',
@@ -70,11 +69,11 @@ export class RelevepluieComponent implements OnInit {
     this.submitted = false;
     this.relevepluie = new Relevepluie();
     this.getLastValues();
-    
   }
   
   searchByMonthByYear(){
-      this.dataValuesDay =[];
+      this.barChartDataDay= [];
+      this.barChartLabelsDay=[];
       this.getValueByDayForMonthByYear(this.annee, this.mois);
   }
 
@@ -92,8 +91,6 @@ export class RelevepluieComponent implements OnInit {
 
   
   getValueByDayForMonthByYear(annee: any, mois: any){
-//      this.dataValuesDay = [];
-//      this.barChartLabelsDay =[];
       this.restService.getvalueByDayForMonthByYear(annee , mois).subscribe((resultData) => {
           console.log(resultData);
           for (let i = 0; i < resultData.length; i++) {
