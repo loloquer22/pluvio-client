@@ -11,6 +11,8 @@ import { Observable } from "rxjs";
 })
 export class HomeComponent implements OnInit {
     
+    private productObservable: Observable<RestService>;
+
   public years:any = [];
 
   public labels:any = [];

@@ -32,7 +32,7 @@ export class SearchRelevepluieComponent implements OnInit {
     this.isDetailDivVisible=false;
   }
 
-  getRelevepluieByDate() {
+  getRelevepluieByDate(date) {
     this.restService.getRelevepluieByDate(this.date).subscribe(relevepluie => this.relevepluie = relevepluie)
     this.isDetailDivVisible=true;
     this.isSearchDivVisible=false;
@@ -56,7 +56,7 @@ export class SearchRelevepluieComponent implements OnInit {
 
     
 
-   deleteRelevepluie() {
+   deleteRelevepluie(id) {
     console.log(this.relevepluie.id);
          
     // this.dataService.deleteRelevepluie(this.relevepluie.id).then(() => this.goBack());
@@ -72,11 +72,6 @@ export class SearchRelevepluieComponent implements OnInit {
     this.location.back();
   }
 
-//  onSubmit() {
-//  this.isSearchDivVisible=false;
-//  this.isDetailDivVisible=true;
-//  }
-  
   onDelete(buttonType) {
       if(buttonType==="Deleted") {
           this.deleted = true;
