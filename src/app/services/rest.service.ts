@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environment';
+//import { environment } from './environments/environment';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 
-import { Relevepluie } from './relevepluie';
+import { Relevepluie } from '../models/relevepluie';
 
 //const endpoint = 'http://localhost:8080/pluvio/';
 //const endpoint = environment.apiUrl;
@@ -48,8 +48,9 @@ export class RestService {
       map(this.extractData));
   }
   
-  getvalueByDayForMonthByYear(annee: any , mois: any): Observable<any> {
-      return this.http.get(endpoint + 'listValDayMonthYear/' + annee + '/'+  mois  ).pipe(
+  getValueByDayForMonthByYear(annee: any , mois: any): Observable<any> {
+      console.log( "getValueByDayForMonthByYear annee: " + annee + "," + "mois: "+ mois);
+      return this.http.get(endpoint + 'listValueByDayForMonthByYear/' + annee + '/'+  mois  ).pipe(
         map(this.extractData));
     }
 

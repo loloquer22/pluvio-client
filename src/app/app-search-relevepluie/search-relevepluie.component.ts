@@ -1,8 +1,8 @@
 import { Component, OnInit , Input} from '@angular/core';
 import {Location} from '@angular/common';
-import { RestService } from '../rest.service';
+import { RestService } from '../services/rest.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Relevepluie } from '../relevepluie';
+import { Relevepluie } from '../models/relevepluie';
 
 @Component({
   selector: 'app-search-relevepluie',

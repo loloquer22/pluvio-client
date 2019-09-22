@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RestService } from '../rest.service';
-import { Listyear } from '../listYear';
-import { Totalbymonthbyyear } from '../totalByMonthByYear';
+import { RestService } from '../services/rest.service';
+import { Listyear } from '../models/listYear';
+import { Totalbymonthbyyear } from '../models/totalByMonthByYear';
 
 @Component({
   selector: 'app-graph',

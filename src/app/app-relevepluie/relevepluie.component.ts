@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { RestService } from '../rest.service';
+import { RestService } from '../services/rest.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Relevepluie } from '../relevepluie';
+import { Relevepluie } from '../models/relevepluie';
 import { Color } from "ng2-charts";
 import { Observable } from "rxjs";
 @Component({
@@ -57,12 +57,12 @@ export class RelevepluieComponent implements OnInit {
       this.restService.getLastValues().subscribe ((data: {}) => {
       console.log(data);
       this.lastvalue = data;
+      this.getValueByDayForMonthByYear(this.lastvalue.annee, this.lastvalue.mois);
     });
   }
 
   ngOnInit() {
     this.getLastValues();
-    this.getValueByDayForMonthByYear(0,0);
   }
 
   newRelevepluie(): void {
@@ -74,7 +74,6 @@ export class RelevepluieComponent implements OnInit {
   searchByMonthByYear(){
       this.barChartDataDay= [];
       this.barChartLabelsDay=[];
-      this.getValueByDayForMonthByYear(this.annee, this.mois);
   }
 
   addRelevepluie() {
@@ -86,13 +85,14 @@ export class RelevepluieComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.addRelevepluie();
+
   }
   
 
   
   getValueByDayForMonthByYear(annee: any, mois: any){
-      this.restService.getvalueByDayForMonthByYear(annee , mois).subscribe((resultData) => {
-          console.log(resultData);
+      this.restService.getValueByDayForMonthByYear(annee , mois).subscribe((resultData) => {
+          console.log("getValueByDayForMonthByYear");
           for (let i = 0; i < resultData.length; i++) {
             this.dataValuesDay.push(resultData[i].valeur)
             this.labelsDay.push((resultData[i].jour))
