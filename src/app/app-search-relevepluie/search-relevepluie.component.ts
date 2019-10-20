@@ -53,9 +53,7 @@ export class SearchRelevepluieComponent implements OnInit {
       error => console.log(error));
       this.location.back();
     }
-
-    
-
+  
    deleteRelevepluie(id) {
     console.log(this.relevepluie.id);
          

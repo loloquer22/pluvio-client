@@ -56,18 +56,12 @@ export class RelevepluieComponent implements OnInit {
     this.lastvalue = [];
       this.restService.getLastValues().subscribe ((data: {}) => {
       console.log(data);
-      this.lastvalue = data;
+      this.lastvalue = data as Relevepluie;
       this.getValueByDayForMonthByYear(this.lastvalue.annee, this.lastvalue.mois);
     });
   }
 
   ngOnInit() {
-    this.getLastValues();
-  }
-
-  newRelevepluie(): void {
-    this.submitted = false;
-    this.relevepluie = new Relevepluie();
     this.getLastValues();
   }
   
@@ -76,31 +70,19 @@ export class RelevepluieComponent implements OnInit {
       this.barChartLabelsDay=[];
   }
 
-  addRelevepluie() {
-    this.restService.addRelevepluie(this.relevepluie)
-      .subscribe(data => console.log(data), error => console.log(error));
-    this.relevepluie = new Relevepluie();
-  }
-
-  onSubmit() {
-    this.submitted = true;
-    this.addRelevepluie();
-
-  }
-  
-
-  
   getValueByDayForMonthByYear(annee: any, mois: any){
       this.restService.getValueByDayForMonthByYear(annee , mois).subscribe((resultData) => {
-          console.log("getValueByDayForMonthByYear");
+          console.log("**** getValueByDayForMonthByYear");
           for (let i = 0; i < resultData.length; i++) {
             this.dataValuesDay.push(resultData[i].valeur)
             this.labelsDay.push((resultData[i].jour))
             this.barChartDataDay.push([(resultData[i].jour), resultData[i].valeur]);
           }
+          console.log("labelsDay :" + this.labelsDay);
           
             this.barChartLabelsDay = this.labelsDay;
               this.barChartDataDay = this.dataValuesDay;
+              
       })
   }
 }

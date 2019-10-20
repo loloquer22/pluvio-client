@@ -9,6 +9,8 @@ import { RelevepluieComponent } from './app-relevepluie/relevepluie.component';
 import { PhotosComponent } from './app-photos/photos.component';
 
 import {SearchRelevepluieComponent} from './app-search-relevepluie/search-relevepluie.component';
+import {AddRelevepluieComponent} from './app-add-relevepluie/add-relevepluie.component';
+
 
 const routes: Routes = [
   { path: "", redirectTo: 'home', pathMatch: 'full' },
@@ -16,7 +18,8 @@ const routes: Routes = [
   { path: "graph", component: GraphComponent },
   { path: "relevepluie", component: RelevepluieComponent },
   { path: "photos", component: PhotosComponent },
-  {path: 'relevepluie/search', component: SearchRelevepluieComponent}
+  {path: 'relevepluie/search', component: SearchRelevepluieComponent},
+  {path: 'relevepluie/add', component: AddRelevepluieComponent}
 ];
 
 @NgModule({

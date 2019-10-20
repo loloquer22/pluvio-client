@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-//import { environment } from './environments/environment';
+
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 
 import { Relevepluie } from '../models/relevepluie';
+//import { environment } from 'environments/environment.prod';
 
-//const endpoint = 'http://localhost:8080/pluvio/';
 //const endpoint = environment.apiUrl;
-const endpoint = '/pluvio/';
+ const endpoint = '/pluvio/';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',

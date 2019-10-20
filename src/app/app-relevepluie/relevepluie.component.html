@@ -1,55 +1,46 @@
 <h2 class="relevepluie-titre">Relevé pluie!</h2>
 
-<div class="relevepluie-dernierReleve" >
-	<label for="value">Dernier releve : </label> {{lastvalue.valeur}} mm - le: {{lastvalue.jour}}-{{lastvalue.mois}}-{{lastvalue.annee}}
+<div class="relevepluie-dernierReleve">
+	<label for="value">Dernier releve : </label> {{lastvalue.valeur}} mm -
+	le: {{lastvalue.jour}}-{{lastvalue.mois}}-{{lastvalue.annee}}
 </div>
-<div [hidden]="submitted" style="width: 300px;margin-left: 38.5%;">
-	<form (ngSubmit)="onSubmit()">
-	  <div class="form-group">
-		<label for="date">Date</label>
-		<input type="date" class="form-control" id="date" required [(ngModel)]="relevepluie.date" name="name">
-	  </div>
-  
-	  <div class="form-group">
-		<label for=valeur>Valeur</label>
-		<input type="number"  min="0" max="50" step=0.1 class="form-control" id="valeur" required [(ngModel)]="relevepluie.valeur" name="valeur">
-	  </div>
-  
-		<nav>
-			<button type="submit" class="btn btn-success mr-2">Submit</button>
-			<a routerLink="search"	class="btn btn-info active" role="button" routerLinkActive="active">Search</a>
-	</nav>
-		</form>
-		
-  </div>
-  
-  <div [hidden]="!submitted" style="margin-left: 38.5%;">
-	<h4>Ajouter avec success !!</h4>
-	<button class="btn btn-success" (click)="newRelevepluie()">Add</button>
-  </div>
-  
-  <div class="container" style="width: 40%; margin-top: 2%; margin-left: 14.5%;">
-  <h5>Chercher le mois et l'année de votre choix</h5>
-    <form action="/action_page.php">
-        <div class="input-group"  >
-    <input type="number"  min="1" max="31" style="width: 30%;" class="form-control" placeholder="mois" name="mois" [(ngModel)]="mois">
-      <input type="number"  min="2007" max="2020" style="width: 30%;" class="form-control" placeholder="Année" name="annee" [(ngModel)]="annee">
-         <div class="input-group-btn" style="display: inline-block; margin-left: 10px;" >
-         <button type="submit" (click)="searchByMonthByYear()" class="btn btn-success mr-2">Search</button>
-<!--         <button class="btn btn-default" type="submit"> -->
-<!--         <i class="glyphicon glyphicon-search"></i> -->
-<!--         </button> -->
-      </div>
-    </div>
-  </form>
-</div>		
-		<div class="barChart"
-			style="width: 800px; height: 300px; display: inline-block; margin-top: 2%; margin-left: 10% ">
-			<canvas baseChart [datasets]="barChartDataDay" [labels]="barChartLabelsDay"
-				[options]="barChartOptionsDay" [legend]="barChartLegendDay"
-				[colors]="barChartColorsDay" [chartType]="barChartTypeDay">
-        	</canvas>
+<div [hidden]="submitted" style="width: 300px; margin-left: 38.5%;">
+
+	<button routerLink="add" class="btn btn-success mr-2" role="button"
+		routerLinkActive="active">Ajouter</button>
+	<a routerLink="search" class="btn btn-info active" role="button"
+		routerLinkActive="active">Search</a>
+</div>
+
+<div [hidden]="submitted" class="container"
+	style="width: 40%; margin-top: 2%; margin-left: 14.5%;">
+	<h5>Chercher le mois et l'année de votre choix</h5>
+	<form action="/action_page.php">
+		<div class="input-group">
+			<input type="number" min="1" max="31" style="width: 30%;"
+				class="form-control" placeholder="mois" name="mois"
+				[(ngModel)]="mois"> <input type="number" min="2007"
+				max="2020" style="width: 30%;" class="form-control"
+				placeholder="Année" name="annee" [(ngModel)]="annee">
+			<div class="input-group-btn"
+				style="display: inline-block; margin-left: 10px;">
+				<button type="submit" (click)="searchByMonthByYear()"
+					class="btn btn-success mr-2">Search</button>
+				<!--         <button class="btn btn-default" type="submit"> -->
+				<!--         <i class="glyphicon glyphicon-search"></i> -->
+				<!--         </button> -->
+			</div>
 		</div>
+	</form>
+</div>
+<div class="barChart"
+	style="width: 800px; height: 300px; display: inline-block; margin-top: 2%; margin-left: 10%">
+	<canvas baseChart [datasets]="barChartDataDay"
+		[labels]="barChartLabelsDay" [options]="barChartOptionsDay"
+		[legend]="barChartLegendDay" [colors]="barChartColorsDay"
+		[chartType]="barChartTypeDay">
+        	</canvas>
+</div>
 
 
 

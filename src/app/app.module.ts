@@ -20,6 +20,7 @@ import { RelevepluieComponent } from './app-relevepluie/relevepluie.component';
 import { PhotosComponent } from './app-photos/photos.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { SearchRelevepluieComponent } from './app-search-relevepluie/search-relevepluie.component';
+import { AddRelevepluieComponent } from './app-add-relevepluie/add-relevepluie.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SearchRelevepluieComponent } from './app-search-relevepluie/search-rele
     GraphComponent,
     RelevepluieComponent,
     PhotosComponent,
-    SearchRelevepluieComponent    
+    SearchRelevepluieComponent,
+    AddRelevepluieComponent    
   ],
   imports: [
     BrowserModule,
