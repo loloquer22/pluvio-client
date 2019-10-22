@@ -1,5 +1,4 @@
 export const environment = {
   production: true,
-// apiUrl: 'http://192.168.1.98:8080/pluvio/'
- // apiUrl: ''
+  apiUrl: 'http://192.168.1.98:8080'
 };

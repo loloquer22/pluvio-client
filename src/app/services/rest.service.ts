@@ -5,9 +5,10 @@ import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 
 import { Relevepluie } from '../models/relevepluie';
-//import { environment } from 'environments/environment.prod';
+import { environment } from 'environments/environment.prod';
 
 //const endpoint = environment.apiUrl;
+// const endpoint = environment.apiUrl + '/pluvio/';
  const endpoint = '/pluvio/';
 const httpOptions = {
   headers: new HttpHeaders({

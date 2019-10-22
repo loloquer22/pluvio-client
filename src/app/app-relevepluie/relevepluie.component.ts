@@ -52,15 +52,6 @@ export class RelevepluieComponent implements OnInit {
  constructor(public restService:RestService, private route: ActivatedRoute, private router: Router) {
  }
  
-  getLastValues() {
-    this.lastvalue = [];
-      this.restService.getLastValues().subscribe ((data: {}) => {
-      console.log(data);
-      this.lastvalue = data as Relevepluie;
-      this.getValueByDayForMonthByYear(this.lastvalue.annee, this.lastvalue.mois);
-    });
-  }
-
   ngOnInit() {
     this.getLastValues();
   }
@@ -70,9 +61,20 @@ export class RelevepluieComponent implements OnInit {
       this.barChartLabelsDay=[];
   }
 
+
+  getLastValues() {
+      this.lastvalue = [];
+        this.restService.getLastValues().subscribe ((data: {}) => {
+        console.log(data);
+        this.lastvalue = data as Relevepluie;
+        this.getValueByDayForMonthByYear(this.lastvalue.annee, this.lastvalue.mois);
+      });
+    }
+  
   getValueByDayForMonthByYear(annee: any, mois: any){
+      this.searchByMonthByYear;
       this.restService.getValueByDayForMonthByYear(annee , mois).subscribe((resultData) => {
-          console.log("**** getValueByDayForMonthByYear");
+           console.log("**** getValueByDayForMonthByYear");
           for (let i = 0; i < resultData.length; i++) {
             this.dataValuesDay.push(resultData[i].valeur)
             this.labelsDay.push((resultData[i].jour))
@@ -82,7 +84,6 @@ export class RelevepluieComponent implements OnInit {
           
             this.barChartLabelsDay = this.labelsDay;
               this.barChartDataDay = this.dataValuesDay;
-              
       })
   }
 }
