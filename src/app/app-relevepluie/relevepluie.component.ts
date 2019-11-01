@@ -56,9 +56,11 @@ export class RelevepluieComponent implements OnInit {
     this.getLastValues();
   }
   
-  searchByMonthByYear(){
-      this.barChartDataDay= [];
-      this.barChartLabelsDay=[];
+  searchByMonthByYear(annee, mois){
+      console.log("**** annee: " + annee + " mois: " + mois);
+      this.barChartDataDay= [0];
+      this.barChartLabelsDay=[0];
+      this.getValueByDayForMonthByYear(annee, mois);
   }
 
 
@@ -72,7 +74,7 @@ export class RelevepluieComponent implements OnInit {
     }
   
   getValueByDayForMonthByYear(annee: any, mois: any){
-      this.searchByMonthByYear;
+      let resultData=[];
       this.restService.getValueByDayForMonthByYear(annee , mois).subscribe((resultData) => {
            console.log("**** getValueByDayForMonthByYear");
           for (let i = 0; i < resultData.length; i++) {
