@@ -46,7 +46,7 @@ export class SearchRelevepluieComponent implements OnInit {
     console.log(this.relevepluie.id);
     console.log(this.relevepluie.valeur);
        
-        this.restService.updateRelevepluie(  {id: relev.id ,date: relev.date, valeur: relev.valeur})
+        this.restService.updateRelevepluie(  {id: relev.id, valeur: relev.valeur})
       .subscribe(data => {
         console.log(data), 
       this.relevepluie = data as Relevepluie;},
