@@ -3,6 +3,26 @@
 
 <div class="container">
 <ngb-accordion #acc="ngbAccordion">
+<ngb-panel title="2020">
+        <ng-template ngbPanelContent>
+          <accordion-group heading="Année 2020">
+            <div class="lineGraph">
+              <div style="display: block;">
+                <canvas baseChart width="800" height="200"
+                  [datasets]="lineChartData2019"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)">
+                </canvas>
+              </div>
+            </div>
+          </accordion-group>
+        </ng-template>
+      </ngb-panel>
 <!--     <ngb-panel title="2019"  id="config-panel-one"> -->
 	<ngb-panel title="2019">
         <ng-template ngbPanelContent>
