@@ -33,9 +33,8 @@ export class GraphComponent implements OnInit {
 
     // lineChart
     public lineChartData2020: Array<any> = [
-        { data: this.data2019, label: 'Series 2019' },
+        { data: this.data2020, label: 'Series 2020' },
     ];
-
     public lineChartData2019: Array<any> = [
         { data: this.data2019, label: 'Series 2019' },
     ];
