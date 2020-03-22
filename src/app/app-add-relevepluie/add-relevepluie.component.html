@@ -28,5 +28,22 @@
 		<button class="btn btn-success mr-2" (click)="onAdd('Added')" [disabled]="!addForm.form.valid">Submit</button>
 
 		<!-- 	</nav> -->
+		
+		<div [hidden]="submitted" style="width: 300px; margin-left: 38.5%;">
+
+	<button routerLink="add" class="btn btn-success mr-2" role="button"
+		routerLinkActive="active">Ajouter</button>
+	<a routerLink="search" class="btn btn-info active" role="button"
+		routerLinkActive="active">Search</a>
+</div>
+
+<div class="barChart"
+	style="width: 800px; height: 300px; display: inline-block; margin-top: 2%; margin-left: 10%">
+	<canvas baseChart [datasets]="barChartDataDay"
+		[labels]="barChartLabelsDay" [options]="barChartOptionsDay"
+		[legend]="barChartLegendDay" [colors]="barChartColorsDay"
+		[chartType]="barChartTypeDay">
+        	</canvas>
+</div>
 	</form>
 </div>

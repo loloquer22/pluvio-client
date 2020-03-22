@@ -49,8 +49,8 @@ export class RestService {
       map(this.extractData));
   }
   
-  getValueByDayForMonthByYear(annee: any , mois: any): Observable<any> {
-      console.log( "getValueByDayForMonthByYear annee: " + annee + "," + "mois: "+ mois);
+  listValueByDayForMonthByYear(annee: any , mois: any): Observable<any> {
+      console.log( "listValueByDayForMonthByYear annee: " + annee + "," + "mois: "+ mois);
       return this.http.get(endpoint + 'listValueByDayForMonthByYear/' + annee + '/'+  mois  ).pipe(
         map(this.extractData));
     }
@@ -92,6 +92,13 @@ export class RestService {
       return of(result as T);
     };
   }
+  
+  getNbreDayRain( mois: any): Observable<any> {
+      console.log( "getNbrDayTotalRain mois: "+ mois);
+      return this.http.get(endpoint + 'getNbrDayTotalRain/' +  mois  ).pipe(
+        map(this.extractData));
+    }
+
    // Get all values by years
   // getByYearRelevepluies(): Observable < Listyear > {
    // return this.http.get("http://192.168.1.98:8080/pluvio/listYear" )

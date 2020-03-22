@@ -12,19 +12,19 @@
 		routerLinkActive="active">Search</a>
 </div>
 
-<div class="container"
-	style="width: 40%; margin-top: 2%; margin-left: 14.5%;">
-	<h5>Chercher le mois et l'année de votre choix</h5>
-	<form #searchForm="ngForm">
-		<div class="input-group">
-			<input type="number" min="1" max="31" style="width: 30%;" class="form-control" placeholder="mois" name="mois" required [(ngModel)]="mois">
-			 <input type="number" min="2007" max="2025" style="width: 30%;" class="form-control" placeholder="Année" name="annee" required [(ngModel)]="annee">
-			<div class="input-group-btn" style="display: inline-block; margin-left: 10px;">
-				<button class="btn btn-success mr-2"  [disabled]="!searchForm.form.valid" (click)="searchByMonthByYear(annee, mois)">Search date</button>
-			</div>
-		</div>
-	</form>
-</div>
+<!-- <div class="container" -->
+<!-- 	style="width: 40%; margin-top: 2%; margin-left: 14.5%;"> -->
+<!-- 	<h5>Chercher le mois et l'année de votre choix</h5> -->
+<!-- 	<form #searchForm="ngForm"> -->
+<!-- 		<div class="input-group"> -->
+<!-- 			<input type="number" min="1" max="31" style="width: 30%;" class="form-control" placeholder="mois" name="mois" required [(ngModel)]="mois"> -->
+<!-- 			 <input type="number" min="2007" max="2025" style="width: 30%;" class="form-control" placeholder="Année" name="annee" required [(ngModel)]="annee"> -->
+<!-- 			<div class="input-group-btn" style="display: inline-block; margin-left: 10px;"> -->
+<!-- 				<button class="btn btn-success mr-2"  [disabled]="!searchForm.form.valid" (click)="searchByMonthByYear(annee, mois)">Search date</button> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</form> -->
+<!-- </div> -->
 <div class="barChart"
 	style="width: 800px; height: 300px; display: inline-block; margin-top: 2%; margin-left: 10%">
 	<canvas baseChart [datasets]="barChartDataDay"
