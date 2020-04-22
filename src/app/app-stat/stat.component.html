@@ -1,0 +1,45 @@
+<div class="container"
+	style="width: 40%; margin-top: 2%; margin-left: 14.5%; ">
+	<h5>Chercher le nombre de jour de pluie par mois</h5>
+	<form #searchFormNbr="ngForm">
+		<div class="input-group">
+			<input type="number" min="1" max="31" style="width: 30%;" class="form-control" placeholder="mois" name="mois" required [(ngModel)]="mois">
+			<div class="input-group-btn" style="display: inline-block; margin-left: 10px;">
+				<button class="btn btn-success mr-2"  [disabled]="!searchFormNbr.form.valid" (click)="getNbrDayRain( mois)">Search date</button>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="barChart"
+			style="width: 800px; height: 300px; display: inline-block; margin-top: 2%; margin-left: 10%">
+			<canvas baseChart [datasets]="barChartData" [labels]="barChartLabels"
+				[options]="barChartOptions" [legend]="barChartLegend"
+				[colors]="barChartColors" [chartType]="barChartType">
+        	</canvas>
+		</div>
+
+<div class="container"
+	style="width: 40%; margin-top: 8%; margin-left: 14.5%;">
+	<h5>Chercher le mois et l'année de votre choix</h5>
+	<form #searchForm="ngForm">
+		<div class="input-group">
+			<input type="number" min="1" max="31" style="width: 30%;" class="form-control" placeholder="Mois" name="moisYear" required [(ngModel)]="moisYear">
+			 <input type="number" min="2007" max="2025" style="width: 30%;" class="form-control" placeholder="Année" name="anneeYear" required [(ngModel)]="anneeYear">
+			<div class="input-group-btn" style="display: inline-block; margin-left: 10px;">
+				<button class="btn btn-success mr-2"  [disabled]="!searchForm.form.valid" (click)="searchByMonthByYear(anneeYear,moisYear)">Search date</button>
+				<button class="btn btn-primary" (click)="clear()">Clear</button>
+			</div>
+		</div>
+	</form>
+</div>
+<div *ngIf="barChartDataDay" class="chart"
+	style="width: 800px; height: 300px; display: inline-block; margin-top: 2%; margin-left: 10%">
+	<canvas baseChart
+	 [datasets]="barChartDataDay"
+		[labels]="barChartLabelsDay" [options]="barChartOptionsDay"
+		[legend]="barChartLegendDay" [colors]="barChartColorsDay"
+		[chartType]="barChartTypeDay" 
+		(chartHover)="chartHoveredDay($event)"
+          (chartClick)="chartClickedDay($event)">
+        	</canvas>
+</div>

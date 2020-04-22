@@ -74,7 +74,7 @@ export class AddRelevepluieComponent implements OnInit {
   }
   
   getValueByDayForMonthByYear(annee: any, mois: any){
-      this.restService.getValueByDayForMonthByYear(annee , mois).subscribe((resultData) => {
+      this.restService.listValueByDayForMonthByYear(annee , mois).subscribe((resultData) => {
           console.log("getValueByDayForMonthByYear");
           for (let i = 0; i < resultData.length; i++) {
             this.dataValuesDay.push(resultData[i].valeur)
