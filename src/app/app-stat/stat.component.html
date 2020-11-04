@@ -3,9 +3,10 @@
 	<h5>Chercher le nombre de jour de pluie par mois</h5>
 	<form #searchFormNbr="ngForm">
 		<div class="input-group">
-			<input type="number" min="1" max="31" style="width: 30%;" class="form-control" placeholder="mois" name="mois" required [(ngModel)]="mois">
+			<input type="number" min="1" max="31" style="width: 30%;" class="form-control" placeholder="mois" name="moisRain" required [(ngModel)]="moisRain">
 			<div class="input-group-btn" style="display: inline-block; margin-left: 10px;">
-				<button class="btn btn-success mr-2"  [disabled]="!searchFormNbr.form.valid" (click)="getNbrDayRain( mois)">Search date</button>
+				<button class="btn btn-success mr-2"  [disabled]="!searchFormNbr.form.valid" (click)="getNbrDayRain(moisRain)">Search date</button>
+						<button class="btn moisRainbtn-primary" (click)="clearRain()">Clear</button>
 			</div>
 		</div>
 	</form>

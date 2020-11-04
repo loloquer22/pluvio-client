@@ -13,6 +13,7 @@ import { Input } from "@angular/core";
     styleUrls: ['./stat.component.css']
 } )
 export class StatComponent implements OnInit {
+    moisRain: string;
     @ViewChild(BaseChartDirective) chart: BaseChartDirective;
       
     private productObservable: Observable<RestService>;
@@ -21,7 +22,6 @@ export class StatComponent implements OnInit {
     anneeYear: any;
 
 public labels:any = [];
-    moisLegend: string;
     
 dataValues:Array<Number> = new Array();
 
@@ -51,7 +51,7 @@ public barChartLabels: any[] = this.labels;
 
   public barChartData: any[] = [
                                 
-      { dataValues: this.dataValues, label: this.moisLegend + ' Nombre de jour de pluie par mois' },
+      { dataValues: this.dataValues, label: this.moisRain + ' Nombre de jour de pluie par mois' },
   ];
   
 
@@ -94,11 +94,6 @@ public barChartLabels: any[] = this.labels;
   
   
   public barChartDataDay: any[] =     [
-//                                       setTimeout(() => {
-//                                           this.chart.chart.data.datasets[0].data = this.dataValuesDay
-//                                           this.chart.chart.update()
-//                                       }, 2000)
-                                  {data: [], label: ''},      
                                 { dataValuesDay: this.dataValuesDay, label: 'Pluie par jour en mm' },
                             ];
 
@@ -112,104 +107,69 @@ ngOnInit() {
  //       this.chart.chart.update();
 //    }, 5000);
     
+//    this.getNbrDayRain( this.mois );
 }
 
 
 
-getNbrDayRain( mois ) {
-    console.log("**==** mois " + mois);
-this.restService.getNbreDayRain(mois).subscribe (( result) => {
-    console.log("**** valuesByYear " + result);
-      this.chartData = [];
-      for (let i = 0; i < result.length; i++) {
-        this.dataValues.push(result[i].nbrdays)
-        this.labels.push((result[i].annee))
-        this.chartData.push([(result[i].annee), result[i].nbrdays]);
-      }
-      
-        this.barChartLabels = this.labels;
-          this.barChartData = this.dataValues;
-          this.mois;
-  })
+getNbrDayRain( moisRain ) {
+    console.log("**==** mois " + moisRain);
+//this.restService.getNbreDayRain(moisRain).subscribe (( result) => {
+//    console.log("**** valuesByYear " + result);
+//      this.chartData = [];
+//      for (let i = 0; i < result.length; i++) {
+//        this.dataValues.push(result[i].nbrdays)
+//        this.labels.push((result[i].annee))
+//        this.chartData.push([(result[i].annee), result[i].nbrdays]);
+//      }
+//      
+//        this.barChartLabels = this.labels;
+//          this.barChartData = this.dataValues;
+//  })
 }
 
 searchByMonthByYear(annee: any, mois: any){
-//    this.labelsDay=[0];
     this.dataValuesDay=[];
-//    this.barChartLabelsDay = this.labelsDay;
-//    this.barChartDataDay = this.dataValuesDay;
     console.log(" * annee: " + annee + " * mois: " + mois);
     
-    this.restService.listValueByDayForMonthByYear(annee , mois).subscribe((resultData) => {
-        console.log("getValueByDayForMonthByYear");
-        for (let i = 0; i < resultData.length; i++) {
-          this.dataValuesDay.push(resultData[i].valeur)
-          this.labelsDay.push((resultData[i].jour))
-          this.barChartDataDay.push([(resultData[i].jour), resultData[i].valeur]);
-        }
-        console.log(" * labelsDay :" + this.labelsDay);
-        console.log(" * dataValuesDay :" + this.dataValuesDay);
-//          this.barChartLabelsDay = this.labelsDay;
-//            this.barChartDataDay = this.dataValuesDay;
-            
-//            this.chart.chart.update();
-            this.refreshChart(this.labelsDay,this.dataValuesDay );
-    })
-//    setInterval(() => {
-//    this.chart.chart.update();
-//    }, 1000);
-}
-
-clear(){
-    this.labelsDay=[0];
-    this.dataValuesDay=[0];
-    
 //    this.restService.listValueByDayForMonthByYear(annee , mois).subscribe((resultData) => {
-//        console.log("getValueByDayForMonthByYear");
 //        for (let i = 0; i < resultData.length; i++) {
 //          this.dataValuesDay.push(resultData[i].valeur)
 //          this.labelsDay.push((resultData[i].jour))
 //          this.barChartDataDay.push([(resultData[i].jour), resultData[i].valeur]);
 //        }
-        console.log(" ** barChartLabelsDay :" + this.labelsDay);
-        console.log(" ** barChartDataDay :" + this.dataValuesDay);
+//            this.refreshChart(this.labelsDay,this.dataValuesDay );
+//    })
+}
+
+clearRain(){
+    this.labels=[];
+    this.dataValues=[];
+    
+        console.log(" ** barChartLabels :" + this.labels);
+        console.log(" ** barChartDataDay :" + this.dataValues);
+          this.barChartLabels = this.labels;
+            this.barChartData = [
+                                   { dataValues: 0, label:' Nombre de jour de pluie par mois' },
+                               ]
+            this.moisRain = "mois";
+
+  }
+
+clear(){
+    this.labelsDay=[];
+    this.dataValuesDay=[];
           this.barChartLabelsDay = this.labelsDay;
-            this.barChartDataDay = this.dataValuesDay;
-            
+          this.barChartDataDay = [{ dataValuesDay: 0 , label: 'Pluie par jour en mm' },
+];
             this.moisYear = "Mois";
             this.anneeYear = "Année";
-            
-//            this.chart.chart.update();
-//            this.refreshChart(this.barChartLabelsDay,this.barChartDataDay );
-            
-    
-//    this.barChartLabelsDay=[];
-//    this.barChartDataDay=[];
-//
-//    this.chart.chart.data.datasets[0].data = this.barChartLabelsDay=[];;
-//    this.chart.chart.data.datasets[0].data = this.barChartDataDay=[]
-//    
-//    this.chart.chart.update();
-//    this.resultData;
-//    this.chart.chart.update();
-//    this.refreshChart();
-//    setTimeout(() => {
-//        this.chart.chart.data.datasets[0].data = this.dataValuesDay
-//        this.chart.chart.update()
-//    }, 2000);
+
   }
 
 
 
 refreshChart(labelsDay, dataValuesDay){
-//    this.labelsDay.show = false;
-//    setTimeout(()=>{
-//        this.labelsDay.show = true;
-//    },1);
-    console.log(" *** labelsDays :" + labelsDay);
-    console.log(" *** dataValuesDay :" + dataValuesDay);
-//        console.log(" *** barChartLabelsDay :" + this.barChartLabelsDay);
-//        console.log(" *** barChartDataDay :" + this.barChartDataDay);
           this.barChartLabelsDay = this.labelsDay;
             this.barChartDataDay = this.dataValuesDay;
             

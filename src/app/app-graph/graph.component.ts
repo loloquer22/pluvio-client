@@ -207,6 +207,13 @@ export class GraphComponent implements OnInit {
         this.getListYears();
         //   this.getTotalByMonthByYear( this.year );
     }
+    
+    activeId: string = "";
+
+    toggleAccordian(event) {
+        // If it is already open you will close it and if it is closed open it
+        this.activeId = this.activeId == event.panelId ? "" : event.panelId;
+    }
     // events
     public chartClicked( e: any ): void {
         console.log( e );

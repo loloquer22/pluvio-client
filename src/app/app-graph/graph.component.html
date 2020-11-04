@@ -2,7 +2,7 @@
   <h5 style="text-align: center;" >Graphe mensuel par année</h5>
 
 <div class="container">
-<ngb-accordion #acc="ngbAccordion">
+<ngb-accordion #acc="ngbAccordion"  [activeIds]="activeId"  (panelChange)="toggleAccordian($event)" >
 <ngb-panel title="2020">
         <ng-template ngbPanelContent>
           <accordion-group heading="Année 2020">

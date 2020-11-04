@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
               }]
             }
         };
+    public barChartPlugins = '';
     public chartHovered = '';
     public chartClicked = '';
     public barChartLegend= '';
@@ -74,6 +75,7 @@ export class HomeComponent implements OnInit {
         
           this.barChartLabels = this.labels;
             this.barChartData = this.dataValues;
+       
     })
   }
  

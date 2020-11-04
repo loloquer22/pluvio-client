@@ -35,7 +35,7 @@ import { StatComponent } from './app-stat/stat.component';
     PhotosComponent,
     SearchRelevepluieComponent,
     AddRelevepluieComponent,
-    StatComponent    
+    StatComponent   
   ],
   imports: [
     BrowserModule,
@@ -52,7 +52,8 @@ import { StatComponent } from './app-stat/stat.component';
     FormsModule,
     ChartsModule,
     HttpClientModule,
-    NgbModule.forRoot(),
+    NgbModule,
+    
     AppRoutingModule
   ],
   providers: [],
